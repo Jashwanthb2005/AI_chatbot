@@ -1,6 +1,9 @@
 import os
 import ssl
 import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
+
 import streamlit as st
 import random
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -84,6 +87,6 @@ if user_input:
 
 for sender, message in st.session_state.history:
     if sender == "You":
-        st.chat_message(sender).write(message)
+        st.markdown(f"**You:** {message}")
     else:
-        st.chat_message(sender).write(message)
+        st.markdown(f"**Bot:** {message}")
